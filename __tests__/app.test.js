@@ -31,31 +31,17 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns animals', async() => {
+    test('returns properly formatted location', async() => {
 
-      const expectation = [
-        {
-          'id': 1,
-          'name': 'bessie',
-          'coolfactor': 3,
-          'owner_id': 1
-        },
-        {
-          'id': 2,
-          'name': 'jumpy',
-          'coolfactor': 4,
-          'owner_id': 1
-        },
-        {
-          'id': 3,
-          'name': 'spot',
-          'coolfactor': 10,
-          'owner_id': 1
-        }
-      ];
+      const expectation = {
+        formatted_query: 'Seattle, WA, USA',
+        latitude: '47.606210',
+        longitude: '-122.332071'
+      };
+       
 
       const data = await fakeRequest(app)
-        .get('/animals')
+        .get('/location')
         .expect('Content-Type', /json/)
         .expect(200);
 
