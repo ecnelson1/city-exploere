@@ -206,7 +206,7 @@ test('returns properly formatted weather information from raw data', async() => 
     forecast: 'Scattered clouds', 
     time: 'Fri Feb 26 2021'
   }];
-  const weatherInfo = {data: [
+  const weatherInfo = { data: [
     {
       moonrise_ts: 1614383594,
       wind_cdir: 'SW',
